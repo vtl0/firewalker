@@ -7,7 +7,7 @@
 void **firewalker(unsigned int pointers_count) {
   void **found_modules;
   uintptr_t ptr;
-  uintptr_t* walker;
+  uintptr_t *walker;
 #if !defined(_NO_WINAPI_TEST)
   MEMORY_BASIC_INFORMATION mbi;
 #endif
