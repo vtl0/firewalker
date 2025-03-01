@@ -24,7 +24,7 @@ void **firewalker(unsigned int pointers_count) {
 #else
   __asm__ volatile("mov %%esp, %0" : "+r"(walker)::);
 #endif
-  for (int i = 0; i < pointers_count; i++) {
+  for (unsigned int i = 0; i < pointers_count; i++) {
     ptr = walker[-i];
     if (ptr > (1ULL << (sizeof(void *) * 4 - 1))) {
 #if !defined(_NO_WINAPI_TEST)
