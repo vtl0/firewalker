@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <Windows.h>
 
-void **firewalker(unsigned int pointers_count) {
+void **firewalker(int pointers_count) {
   void **found_modules;
   uintptr_t ptr;
   uintptr_t *walker;
@@ -24,7 +24,7 @@ void **firewalker(unsigned int pointers_count) {
 #else
   __asm__ volatile("mov %%esp, %0" : "+r"(walker)::);
 #endif
-  for (unsigned int i = 0; i < pointers_count; i++) {
+  for (int i = 0; i < pointers_count; i++) {
     ptr = walker[-i];
     if (ptr > (1ULL << (sizeof(void *) * 4 - 1))) {
 #if !defined(_NO_WINAPI_TEST)
